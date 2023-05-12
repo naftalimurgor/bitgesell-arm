@@ -21,9 +21,9 @@ Docker image that runs the Bitgesell node on any ARM-based devices (such as Rasp
 
 - To setup Docker on your Raspberry PI follow this [quick guide](https://www.simplilearn.com/tutorials/docker-tutorial/raspberry-pi-docker)
 
-## Really Fast Quick Start
+## Really Fast Quick Start (Requires QEMU/KVM to build on non-ARM CPUs)
 
-To get started off quickly, pull the image from DockerHub:
+To get started off quickly,from your Raspberry PI 4, pull the image from DockerHub:
 
 ```sh
 docker pull naftalimurgor/bgld-arm
@@ -33,7 +33,7 @@ Run `bgld-arm` instance on your Raspberry PI
 ```sh
  docker run -dp 8454:8454 naftalimurgor/bgld-arm
 ```
-One liner for Ubuntu 20.04 LTS machines with JSON-RPC enabled on localhost and adds upstart init script:
+One liner for Ubuntu 20.04 LTS, with JSON-RPC enabled on localhost and adds upstart init script:
 
     curl https://raw.githubusercontent.com/naftalimurgor/bgld-arm-docker/master/bootstrap-host.sh | sh
 
