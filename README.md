@@ -1,7 +1,7 @@
 # bgld for ARM and embedded Devices
 
 <p align="center">
-  <img width="300" height="300" src="https://github.com/naftalimurgor/bgld-arm-docker/blob/main/bgl-arm.png">
+  <img width="300" height="300" src="https://github.com/naftalimurgor/bitgesell-arm/blob/main/bgl-arm.png">
 </p>
 
 Docker image that runs the Bitgesell node on any ARM-based devices (such as RaspberryPI) without having to compile Bitgesell Core from the source for target ARM architecture.
