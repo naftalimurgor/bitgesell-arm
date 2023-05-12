@@ -33,11 +33,13 @@ Run `bgld-arm` instance on your Raspberry PI
 ```sh
  docker run -dp 8454:8454 naftalimurgor/bgld-arm
 ```
-One liner for Ubuntu 20.04 LTS, with JSON-RPC enabled on localhost and adds upstart init script:
+One liner on Raspberry PI 4 running Ubuntu 20.04 LTS, with JSON-RPC enabled on localhost and adds upstart init script:
 
     curl https://raw.githubusercontent.com/naftalimurgor/bgld-arm-docker/master/bootstrap-host.sh | sh
 
 ## Quick Start
+Note to build this Image(and run it of course) you will need to setup Virtual Box or VMWare player:
+- Setting up Virtual Box/VMWare on Linux, follow this [quick guide](https://youtu.be/Fr3MUS2cl3k)
 
 1.  Run an instance of Bitegesell node as follows:
 
