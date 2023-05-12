@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -ex
+
+# Generate BGL.conf
+bgl_init
+
+exec bgld-arm "$@"
