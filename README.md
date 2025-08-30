@@ -26,13 +26,16 @@ Docker image that runs the Bitgesell node on any ARM-based devices (such as Rasp
 To get started off quickly,from your Raspberry PI 4, pull the image from DockerHub:
 
 ```sh
-docker pull naftalimurgor/bgld-arm
+docker pull naftalimurgor/bgld-arm64
 ```
 Run `bgld-arm` instance on your Raspberry PI
 
 ```sh
- docker run -dp 8454:8454 naftalimurgor/bgld-arm
+  docker run -d -v /home/nmurgor/.BGL:/root/.BGL -p 8455:8455 naftalimurgor/bgld-arm64
+
 ```
+> NB: remember to mount volume to keep block persistent during Container restarts
+
 One liner on Raspberry PI 4 running Ubuntu 20.04 LTS, with JSON-RPC enabled on localhost and adds upstart init script:
 
     curl https://raw.githubusercontent.com/naftalimurgor/bgld-arm-docker/master/bootstrap-host.sh | sh
@@ -43,7 +46,7 @@ Note to build this Image(and run it of course) you will need to setup Virtual Bo
 
 1.  Run an instance of Bitegesell node as follows:
 
-        docker run -dp 8454:8454 naftalimurgor/bgld-arm
+        docker run -dp 8454:8454 naftalimurgor/bgld-arm64
 
 2.  Verify that the container is running and bgld-arm node is downloading the blockchain
 
@@ -53,9 +56,19 @@ Note to build this Image(and run it of course) you will need to setup Virtual Bo
 
 3.  You can then access the daemon's output thanks to the [docker logs command](https://docs.docker.com/reference/commandline/cli/#logs)
 
-        docker logs -f bgld-arm
+        docker logs -f bgld-arm64
 
 4.  Install optional init scripts for upstart and systemd are in the `init` directory.
+
+
+## Building the Docker container locally
+To cross-build the docker container on `amd64` architecture (works with Docker v27+) :
+```sh
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t bgld-arm64:latest \
+  --push .
+ ```
 
 ## Documentation
 
